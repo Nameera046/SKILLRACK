@@ -53,32 +53,34 @@ import java.util.*;
 public class sortTheSubArrayByFirstInteger 
 {
 	public static void main(String[] args) 
-  {
-    		Scanner sc=new Scanner(System.in);
-    		int n=sc.nextInt();
-    		sc.nextLine();
-    		int[] arr=new int[n];
-    		for(int i=0;i<n;i++)
+    {
+    	Scanner sc=new Scanner(System.in);
+    	int n=sc.nextInt();
+    	sc.nextLine();
+    	int[] arr=new int[n];
+		for(int i=0;i<n;i++)
+    	{
+    		arr[i]=sc.nextInt();
+		}
+    	int k=sc.nextInt();
+    	String[] str=new String[n/k];
+		int index=0;
+    	for(int i=0;i<n;i+=k)
+    	{
+			StringBuilder sb=new StringBuilder();
+    		for(int j=i;j<i+k;j++)
     		{
-    			arr[i]=sc.nextInt();
-    		}
-    		int k=sc.nextInt();
-    		String[] str=new String[n/k];
-    		int index=0;
-    		for(int i=0;i<n;i+=k)
-    		{
-    			StringBuilder sb=new StringBuilder();
-    			for(int j=i;j<i+k;j++)
-    			{
-    				sb.append(String.valueOf(arr[j]));
-    			}
-    			str[index++]=sb.toString();
-    		}
+    			sb.append(String.valueOf(arr[j])).append(" ");
+			}
+    		str[index++]=sb.toString().trim();
+    	}
         for(int i=0;i<index-1;i++)
         {
         	for(int j=i+1;j<index;j++)
         	{
-        		if(str[i].charAt(0)-'0'>str[j].charAt(0)-'0')
+				int f1=Integer.parseInt(str[i].split(" ")[0]);
+				int f2=Integer.parseInt(str[j].split(" ")[0]);
+        		if(f1>f2)
             	{
             		String temp=str[i];
             		str[i]=str[j];
@@ -88,7 +90,7 @@ public class sortTheSubArrayByFirstInteger
         }
         for(int i=0;i<index;i++)
         {
-        	System.out.println(str[i]);
+        	System.out.println(str[i] +" ");
         }
 	}
 }
