@@ -32,7 +32,8 @@
 // Example Input/Output 2:
 // Input:
 // 8
-// 34762951 2
+// 3 4 7 6 2 9 5 1 
+// 2
 // Output:
 // 2 9 3 4 5 1 7 6  
 // Explanation:
